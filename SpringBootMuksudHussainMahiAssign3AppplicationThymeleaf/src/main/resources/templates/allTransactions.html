@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>All Transactions</title>
+</head>
+<body>
+	<Form th:action="@{/transaction/get}" th:method="get"> 
+		<input type="number" name="id" placeholder="Enter card no"/>
+		<input type="submit" value="Search"></input>
+	</Form>
+	<table>
+		<thead>
+			<tr>
+				<th>Card Number</th>
+				<th>Price </th>
+				<th>Balance</th>
+				<th>Transaction Date</th>
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="transaction: ${transactions}">
+				<td th:text="${transaction.CardNo}" />
+				<td th:text="${transaction.Price}" />
+				<td th:text="${transaction.Balance}" />
+				<td th:text="${transaction.TransDate}" />
+				<td><a th:href="@{'/transaction/new/{CardNo}'(CardNo=${transaction.CardNo})}">New Transaction</a> </td>
+				<td><a th:href="@{'/transaction/delete/{CardNo}'(CardNo=${transaction.CardNo})}">Delete</a> </td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>Card Authentication</title>
+</head>
+<body>
+	<div align="left">
+		<form action="#" method="post" th:action="@{/card/auth}">
+			<h1>Authentication</h1>
+			Card Number<input type="text" th:name="cardNo" th:value="${cardNo}"></input> 
+			
+			Pin<input type="number" th:name="pin"></input>
+
+			<input type="submit" value="Authenticate"></input>
+		</form>
+
+	</div>
+
+</body>
+</html>

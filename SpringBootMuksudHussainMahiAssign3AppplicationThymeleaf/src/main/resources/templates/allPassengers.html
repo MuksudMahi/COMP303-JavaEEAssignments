@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>All Passenger</title>
+</head>
+<body>
+	<Form th:action="@{/passenger/get}" th:method="get"> 
+		<input type="number" name="id" placeholder="Enter passenger id"/>
+		<input type="submit" value="Search"></input>
+	</Form>
+	<table>
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Age</th>
+				<th>Address</th>
+				<th>City</th>
+				<th>Phone</th>
+				<th>Email</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="passenger: ${passengers}">
+				<td th:text="${passenger.passengerId}" />
+				<td th:text="${passenger.firstName}" />
+				<td th:text="${passenger.lastName}" />
+				<td th:text="${passenger.age}" />
+				<td th:text="${passenger.address}" />
+				<td th:text="${passenger.city}" />
+				<td th:text="${passenger.phone}" />
+				<td th:text="${passenger.email}" />
+				<td><a th:href="@{'/passenger/delete/{passengerId}'(passengerId=${passenger.passengerId})}">Delete</a> </td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

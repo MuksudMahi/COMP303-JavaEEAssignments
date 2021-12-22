@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"><title>Insert title here</title>
+</head>
+<body>
+	<div align="left">
+		<form method="post" th:action="@{/transaction/add}"
+			th:object="${transaction}">
+			<h1>Add Transaction</h1>
+			<label for="CardNo">Transaction Id</label> <input type="number" name="CardNo"></input>
+			 
+		 	<label for="Price">Price</label> <input type="number" name="Price"></input>
+			 
+			<label for="Balance">Balance</label> <input type="number" name="Balance"></input>
+
+			<label for="TransDate">Transaction Date</label> <input type="datetime-local" name="TransDate"></input>
+
+			<input type="submit" value="Add Transaction"></input>
+		</form>
+
+	</div>
+</body>
+</html>

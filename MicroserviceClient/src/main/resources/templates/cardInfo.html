@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>Add Passenger</title>
+</head>
+<body>
+	<div align="left">
+		<div th:if="${card.cardNo!=null}">
+			<a th:href="@{'/card/auth/{cardNo}' (cardNo=${card.cardNo})}">
+				One registered card
+			</a>
+		</div>
+		<div th:unless="${card.cardNo!=null}">
+			<a th:href="@{/card/add}">
+				Buy a card
+			</a>
+		</div>
+	</div>
+
+</body>
+</html>

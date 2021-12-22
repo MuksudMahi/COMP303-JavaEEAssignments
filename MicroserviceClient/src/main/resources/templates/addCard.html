@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>Add Passenger</title>
+</head>
+<body>
+	<div align="left">
+		<form action="#" method="post" th:action="@{/card/add}"
+			th:object="${card}">
+			<h1>Register a card</h1>			
+			Pin<input type="number" th:field="*{pin}"></input>
+			<span th:if="${#fields.hasErrors('pin')}" th:errors="*{pin}"></span><br>
+			Price<input type="number" th:field="*{price}"></input>
+			
+			<input type="submit" value="Add Passenger"></input>
+		</form>
+
+	</div>
+
+</body>
+</html>

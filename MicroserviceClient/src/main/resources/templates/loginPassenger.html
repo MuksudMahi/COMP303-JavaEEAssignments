@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>Login</title>
+</head>
+<body>
+	<div align="left">
+		<form action="#" method="get" th:action="@{/passenger/login}">
+			<h1>Login</h1>
+			<div th:if="${message!=null}">
+				<p th:text="${message}"></p>
+			</div>
+			
+			<label for="email">Email</label> <input type="email" name="email"></input>
+			<label for="password">Password</label> <input type="password" name="password"></input>
+
+			<input type="submit" value="Login"></input>
+		</form>
+		<a th:href="@{/passenger/register}"> Register</a>
+		
+
+	</div>
+
+</body>
+</html>

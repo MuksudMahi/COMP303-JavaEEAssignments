@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>Add Passenger</title>
+</head>
+<body>
+	<div align="left" th:if="${card.cardNo!=null}">
+		<p>Card Number: <span th:text="${card.cardNo}"></span></p>
+		<p>Card Type: <span th:text="${card.cardType}"></span></p>
+		<p>Price: <span th:text="${card.price}"></span></p>
+		<p>Status: <span th:text="${card.status}"></span></p>
+		<p>Renewal: <span th:text="${card.renewal}"></span></p>
+		<p>Cycle: <span th:text="${card.cycle}"></span></p>
+
+		<p th:if="${card.status=='Expired'}"><a th:href="@{'/card/auth/{cardNo}' (cardNo=${card.cardNo})}">
+				Buy monthly pass</a></p>
+	</div>
+	
+	<div th:unless="${card.cardNo!=null}">
+		<a th:href="@{/card/add}">
+			Buy a card
+		</a>
+	</div>
+
+
+	<div>
+		<a th:href="@{/}">
+			Logout
+		</a>
+	</div>
+</body>
+</html>

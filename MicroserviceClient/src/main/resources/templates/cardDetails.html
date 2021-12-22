@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+<title>Add Passenger</title>
+</head>
+<body>
+	<div align="left" th:if="${card.cardNo!=null}">
+		<p>Card Number: <span th:text="${card.cardNo}"></span></p>
+		<p>Balance: <span th:text="${card.balance}"></span></p>
+		<p>Status: <span th:text="${card.status}"></span></p>
+		<p><a th:href="@{'/card/transaction/{cardNo}' (cardNo=${card.cardNo})}">Make a transaction</a></p>
+		<p><a th:href="@{'/card/topup/{cardNo}' (cardNo=${card.cardNo})}">Top-Up</a></p>
+	</div>
+	
+	<div th:unless="${card.cardNo!=null}">
+		<a th:href="@{/card/add}">
+			Buy a card
+		</a>
+	</div>
+	<div>
+		<a th:href="@{/}">
+			Logout
+		</a>
+	</div>
+</body>
+</html>
